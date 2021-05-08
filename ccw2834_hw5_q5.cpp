@@ -10,11 +10,13 @@ int main() {
     cout<<"Please enter a positive integer >=2: ";
     cin>>num;
 
+    cout<<"List of Perfect Number between 2 and "<<num<<": "<<endl;
     for(i=2;i<=num;i++){
         if(isPerfect(i))
             cout<<i<<" ";
     }
-
+    cout<<endl;
+    cout<<"All pairs of amicable numbers that are between 2 and " <<num<<": "<<endl;
     printAmica(num,ami1,ami2);
 
 
@@ -24,13 +26,13 @@ int main() {
 
 void analyzeDivisors(int num,int& outCountDivs,int& outSumDivs){
     int i,j;
-    int count,sum;
-    count=0;
-    sum=0;
+    int numberOfDives,sumD;
+    numberOfDives=0;
+    sumD=0;
     for(i=1;i<=sqrt(num);i++) {
         if (num % i == 0) {
-            sum +=i;
-            count++;
+            sumD +=i;
+            numberOfDives++;
         }
     }
     if(sqrt(num)==(int)sqrt(num))
@@ -41,14 +43,14 @@ void analyzeDivisors(int num,int& outCountDivs,int& outSumDivs){
     for(i=j;i>=1;i--){
         if (num % i == 0){
             if(num/i !=i && num/i !=num) {
-                sum += (num / i);
+                sumD += (num / i);
             }
-            count++;
+            numberOfDives++;
         }
     }
-    count--;
-    outCountDivs=count;
-    outSumDivs=sum;
+    numberOfDives--;
+    outCountDivs=numberOfDives;
+    outSumDivs=sumD;
 
 }
 

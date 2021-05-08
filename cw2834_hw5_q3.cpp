@@ -7,8 +7,8 @@ int main() {
     int year,start;
 
     cout<<"Please enter the year: "<<endl;
-    cin>>year;
-    cout<<"Please enter the starting days of that month using 1-7: "<<endl;
+    cin>> year;
+    cout<<"Please enter the starting days of that year using 1-7: "<<endl;
     cin>>start;
 
     printYearCalender(year,start);
@@ -49,22 +49,71 @@ bool checkLeapYear(int year){
 }
 
 void printYearCalender(int year,int startingDay){
-    int i,header,curr_month;
-    string month;
-
+    int month,daysInTheMonth;
     bool leap;
-
     leap =checkLeapYear(year);
-    for(curr_month=1;curr_month<=12;curr_month++)
-        if(curr_month==1) {
-            cout << "January" << year << endl;
-            printMonthCalender(31, startingDay);
-        }
-        if(curr_month==2 && leap==true) {
-        cout << "February" << year << endl;
-        printMonthCalender(29, );
-        }
 
+    for(month=1;month<=12;month++) {
+        if (month == 1) {
+            cout << "January " << year << endl;
+            daysInTheMonth = 31;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay-1);
+        } else if (month == 2) {
+            cout << "February " << year << endl;
+            if (leap == true) {
+                daysInTheMonth = 29;
+                startingDay = printMonthCalender(daysInTheMonth, startingDay);
+            } else {
+                daysInTheMonth = 28;
+                startingDay = printMonthCalender(daysInTheMonth, startingDay);
+            }
+        } else if (month == 3) {
+            cout << "March " << year << endl;
+            daysInTheMonth = 31;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay);
+        }else if (month == 4) {
+            cout << "April " << year << endl;
+            daysInTheMonth = 30;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay);
+        }
+        else if (month == 5) {
+            cout << "May " << year << endl;
+            daysInTheMonth = 31;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay);
+        }
+        else if (month == 6) {
+            cout << "June " << year << endl;
+            daysInTheMonth = 30;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay);
+        }
+        else if (month == 7) {
+            cout << "July " << year << endl;
+            daysInTheMonth = 31;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay);
+        }
+        else if (month == 8) {
+            cout << "August " << year << endl;
+            daysInTheMonth = 31;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay);
+        }
+        else if (month == 9) {
+            cout << "September " << year << endl;
+            daysInTheMonth = 30;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay);
+        }
+        else if (month == 10) {
+            cout << "October " << year << endl;
+            daysInTheMonth = 31;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay);
+        }else if (month == 11) {
+            cout << "November " << year << endl;
+            daysInTheMonth = 30;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay);
+        }else if (month == 12) {
+            cout << "December " << year << endl;
+            daysInTheMonth = 31;
+            startingDay = printMonthCalender(daysInTheMonth, startingDay);
+        }
 
     }
 
